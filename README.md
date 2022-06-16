@@ -5,7 +5,11 @@ just a mern stack work in progress
  1. git clone the project
  2. npm i express
  3. npm i -g nodemon 
-
+ 4. npm i dotenv
+ <h6>Dotenv is a zero-dependency module that loads environment variables
+ from a .env file into process.env. Storing configuration in the environment
+separate from code is based on The Twelve-Factor App methodology.
+</h6>
  <h2>Tools used</h2>
   //nodemon for testing the routes or the endpoints locally
   //alternatively you can use postman make sure you download and install
