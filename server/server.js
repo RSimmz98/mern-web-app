@@ -1,7 +1,7 @@
 require('dotenv').config()
 
-const express = require('express')
-
+  const express = require('express')
+    const routineRoutes = require('./routes/routines')
 
   const PORT = '5000'
 
@@ -9,6 +9,8 @@ const express = require('express')
   const app = express()
 
 //registering middleware
+  app.use(express.json())
+
   app.use((req,res, next) => {
    console.log(req.path, req.method)
    next()
@@ -18,9 +20,7 @@ const express = require('express')
 //react to requests
 //routes
 
-  app.get('/', (req,res) => {
-  res.json("yo im live")
-})
+  app.use('/api/routines', routineRoutes)
 
 //listen for requests
   app.listen(process.env.PORT,
