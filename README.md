@@ -2,7 +2,7 @@
 just a mern stack work in progress
 
  <h4>Lets get started</h4>
- 1. git clone the project
+ 1. git clone the project </br>
  2. npm i express
  3. npm i -g nodemon 
  4. npm i dotenv
