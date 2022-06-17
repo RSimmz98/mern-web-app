@@ -1,9 +1,8 @@
 require('dotenv').config()
 
   const express = require('express')
-    const routineRoutes = require('./routes/routines')
-
-  const PORT = '5000'
+  const routineRoutes = require('./routes/routines')
+  const mongoose = require('mongoose')
 
 //express app
   const app = express()
@@ -22,9 +21,15 @@ require('dotenv').config()
 
   app.use('/api/routines', routineRoutes)
 
-//listen for requests
-  app.listen(process.env.PORT,
-      () => {
-  console.log('server is running on', process.env.PORT)
-
+ //connecting to database 
+  mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+   //listen for requests 
+   app.listen(process.env.PORT, () => {
+      console.log('yes you are connected to the db using that PORT >', process.env.PORT)
+    })
   })
+  .catch((error) => {
+    console.log(error)
+  })
+
