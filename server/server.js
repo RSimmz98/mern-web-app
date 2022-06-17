@@ -33,3 +33,4 @@ require('dotenv').config()
     console.log(error)
   })
 
+//next is to create schemas
