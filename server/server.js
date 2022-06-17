@@ -17,7 +17,7 @@ require('dotenv').config()
 
 
 //react to requests
-//routes
+//routes for the app
 
   app.use('/api/routines', routineRoutes)
 
