@@ -31,5 +31,6 @@ separate from code is based on The Twelve-Factor App methodology.
   
   <h3>PATCH /routine/:id</h3> //updates a single routine
 
+<h3>Please feel free to contribute to contribute reach out whenever you fee like contributing</h3>
 
 
