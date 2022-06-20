@@ -1,6 +1,6 @@
 //initializing the app
-const express = require('express')
-
+  const express = require('express')
+  const Routine = require('../models/routineModel')
   const router = express.Router()
 
 
@@ -17,9 +17,16 @@ const express = require('express')
   })
   
   //POST a new routine
-  router.post('/',(req,res) =>{
-    res.json({mssg: 'POST a new routine'})
-  })
+  router.post('/', async(req,res) =>{
+    const{title, load, reps} = req.body
+   
+  try{
+    const routine = await Routine.create({title, load, reps})
+    res.status(200).json(routine)
+  } catch (error) {
+  res.status(400).json({error: error.message})
+  }
+  }) 
 
   //DELETE a routine
    router.delete('/:id',(req,res) =>{

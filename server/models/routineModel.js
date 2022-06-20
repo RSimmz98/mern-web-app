@@ -1,4 +1,4 @@
-consf mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
@@ -15,6 +15,10 @@ const routineSchema = new Schema({
     type: Number,
     required: true
   }
-}, { timestamps: true })
+}, { timestamps: true }) //updates date and time of when the object was created
 
 // creating a model
+ module.exports = mongoose.model('Routine', routineSchema)
+
+
+
