@@ -20,5 +20,6 @@ const routineSchema = new Schema({
 // creating a model
  module.exports = mongoose.model('Routine', routineSchema)
 
-
-
+//rep _time taken doing the routine
+//load _ how often do you do it 
+// you can add more
