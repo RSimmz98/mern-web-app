@@ -18,6 +18,8 @@
    if(!routine) {
      return res.status(404).json({error: 'No such routine'})
    }
+
+   res.status(200).json(routine)
  } 
 
  // create new routine 
