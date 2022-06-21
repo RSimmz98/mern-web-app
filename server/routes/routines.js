@@ -1,32 +1,24 @@
 //initializing the app
   const express = require('express')
-  const Routine = require('../models/routineModel')
+  const {
+     getRoutines,
+     getRoutine,
+     createRoutine
+   } = require('../controllers/routineController')
+
   const router = express.Router()
 
 
    //creating routes
   
   //GET all routines
-  router.get('/', (req,res) => {
-    res.json({mssg: 'get all routines'})
-  })
+  router.get('/', getRoutines)
 
-  //GET a single routines
-  router.get('/:id', (req,res) =>{
-    res.json({mssg: 'Get a single routine'})
-  })
-  
+  //GET a single routine
+  router.get('/:id', getRoutine) 
+
   //POST a new routine
-  router.post('/', async(req,res) =>{
-    const{title, load, reps} = req.body
-   
-  try{
-    const routine = await Routine.create({title, load, reps})
-    res.status(200).json(routine)
-  } catch (error) {
-  res.status(400).json({error: error.message})
-  }
-  }) 
+  router.post('/', createRoutine) 
 
   //DELETE a routine
    router.delete('/:id',(req,res) =>{
