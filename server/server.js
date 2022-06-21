@@ -1,3 +1,4 @@
+//exporting the dotenv from the lib we installed
 require('dotenv').config()
 
   const express = require('express')
