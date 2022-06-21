@@ -1,4 +1,5 @@
  const Routine = require('../models/routineModel')
+ const mongoose = require('mongoose')
 
 
 //get all routines
@@ -11,7 +12,11 @@
 
 // get a single routine
  const getRoutine = async (req, res) =>{
-   const {id} = req.params
+  const {id} = req.params
+
+   if(!mongoose.Types.ObjectId.isValid(id)) {
+     return res.status(404).json({error: 'No such routine'})
+   }
 
    const routine = await Routine.findById(id)
 
