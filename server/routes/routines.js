@@ -4,7 +4,8 @@
      getRoutines,
      getRoutine,
      createRoutine,
-     deleteRoutine
+     deleteRoutine,
+     updateRoutine
    } = require('../controllers/routineController')
 
   const router = express.Router()
@@ -12,22 +13,20 @@
 
    //creating routes
   
-  //GET all routines
+  //GET all routines that have been created
   router.get('/', getRoutines)
 
-  //GET a single routine
+  //GET a single routine by using the id
   router.get('/:id', getRoutine) 
 
-  //POST a new routine
+  //POST a new routine or adding the routine to the database
   router.post('/', createRoutine) 
 
-  //DELETE a routine
+  //DELETE a routine usin the id
    router.delete('/:id', deleteRoutine)
    
-   //UPDATE a routine
-   router.patch('/:id',(req,res) =>{
-    res.json({mssg: 'UPDATE a new routine'})
-  })
+   //UPDATE a routine or modifying the existing routine using the id of the routine
+   router.patch('/:id', updateRoutine)
 
 
 

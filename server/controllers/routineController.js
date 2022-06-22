@@ -1,4 +1,6 @@
- const Routine = require('../models/routineModel')
+//this document is the route controller for the projects 
+
+const Routine = require('../models/routineModel')
  const mongoose = require('mongoose')
 
 
@@ -57,12 +59,27 @@
    res.status(200).json(routine)
  }
 
- // update a routine
- 
+ // update a routine by adding new information (patch request)
+  const updateRoutine = async (req, res) => {
+   const { id } = req.params
+   
+        if(!mongoose.Types.ObjectId.isValid(id)) {
+     return res.status(404).json({error: 'No such routine'})
+   }
+    const routine = await Routine.findOneAndUpdate({_id: id}, {
+     ...req.body
+   })
+  if(!routine) {
+     return res.status(400).json({error: 'No such routine'})
+   }
+  res.status(200).json(routine)
+ } 
 
+// exporting all the routes
  module.exports = {
    getRoutines,
    getRoutine,
    createRoutine,
-   deleteRoutine
+   deleteRoutine,
+   updateRoutine
  }
