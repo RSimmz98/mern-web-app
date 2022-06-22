@@ -3,7 +3,8 @@
   const {
      getRoutines,
      getRoutine,
-     createRoutine
+     createRoutine,
+     deleteRoutine
    } = require('../controllers/routineController')
 
   const router = express.Router()
@@ -21,9 +22,7 @@
   router.post('/', createRoutine) 
 
   //DELETE a routine
-   router.delete('/:id',(req,res) =>{
-    res.json({mssg: 'DELETE a routine'})
-  })
+   router.delete('/:id', deleteRoutine)
    
    //UPDATE a routine
    router.patch('/:id',(req,res) =>{
