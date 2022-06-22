@@ -30,6 +30,7 @@
  // create new routine 
  const createRoutine = async(req, res) =>{
       const{title, load, reps} = req.body
+
    //add document to database
   try{
     const routine = await Routine.create({title, load, reps})
@@ -39,7 +40,22 @@
   }
  }
  //delete a routine
- 
+   const deleteRoutine = async(req, res) =>{
+    const { id } = req.params
+
+   //checking if its a valid id 
+   
+      if(!mongoose.Types.ObjectId.isValid(id)) {
+     return res.status(404).json({error: 'No such routine'})
+   }
+
+   const routine = await Routine.findOneAndDelete({_id: id})
+
+   if(!routine) {
+     return re.status(400).json({error: 'No such routine'})
+   }
+   res.status(200).json(routine)
+ }
 
  // update a routine
  
@@ -47,5 +63,6 @@
  module.exports = {
    getRoutines,
    getRoutine,
-   createRoutine
+   createRoutine,
+   deleteRoutine
  }
