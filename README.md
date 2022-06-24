@@ -32,6 +32,14 @@ separate from code is based on The Twelve-Factor App methodology.
   <h3>PATCH /routine/:id</h3> //updates a single routine... it modifies an existing route using the id 
 
 <h3>Please feel free to contribute..reach out whenever you fee like contributing</h3>
+ 
+<h1>CORS</h1> 
+  <p>Cross-Origin Resource Sharing (CORS) refers to the method that allows you to make requests to the server deployed at a different domain. As a reference, 
+  if the frontend and backend are at two different domains, we need CORS there.</p> </br>
+
+ #How I fixed them
+  <p>if you look at the package json I used the proxy and then added 
+  the localhost address</p> </br>
 
 ##Controllers
  <h6>So basically routes and controller work together its a way
