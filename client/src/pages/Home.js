@@ -2,7 +2,7 @@
 
 //Components
  import RoutineDetails from '../components/RoutineDetails'
-
+ import RoutineForm from '../components/RoutineForm'
   const Home = () => {
     const[routines, setRoutines] = useState(null)
 
@@ -20,12 +20,13 @@
    }, [])
 
     return(
-      <div className='pages'>
+      <div className='home'>
         <div className="routines">
           {routines && routines.map((routine) => (
            <RoutineDetails key={routine._id} routine={routine} />
          ))}
        </div>
+         <RoutineForm />
       </div>
     )
   }
