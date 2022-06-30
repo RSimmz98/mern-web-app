@@ -1,6 +1,8 @@
-import {useEffect, useState} from 'react'
-
+import {useState} from 'react'
+import {useRoutinesContext} from '../hooks/useRoutinesContext'
+  
   const RoutineForm = () => {
+   const { dispatch } =useRoutinesContext()
    const [title, setTitle] = useState('');
     const [load, setLoad] = useState('');
      const [reps, setReps] = useState('');
@@ -21,7 +23,7 @@ import {useEffect, useState} from 'react'
     }
   })
   
-  const json = await response.json()
+    const json = await response.json()
 
     if(!response.ok){
       setError(json.error)
@@ -31,7 +33,9 @@ import {useEffect, useState} from 'react'
       setLoad('')
       setReps('')
       setError(null)
+    
       console.log('new rourine has been created', json)
+        dispatch({type: 'CREATE_ROUTINE', payload: json})
     
     }
    }

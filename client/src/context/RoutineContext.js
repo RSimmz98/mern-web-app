@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react'
+import { createContext,useReducer } from 'react'
 
 
 
@@ -11,10 +11,12 @@ import { createContext, useReducer } from 'react'
      return {
         routines: action.payload
       }
-    case 'CREATE-ROUTINE':
+    case 'CREATE_ROUTINE':
      return {
         routines: [action.payload, ...state.routines]
       }
+    default: 
+       return state
   }
 }
 
@@ -24,8 +26,8 @@ import { createContext, useReducer } from 'react'
   })
 
   return (
-    <RoutinesContext.Provider>
-       {Provider}
+    <RoutinesContext.Provider value={{...state, dispatch}}>
+       {children}
     </RoutinesContext.Provider>
   )
 }

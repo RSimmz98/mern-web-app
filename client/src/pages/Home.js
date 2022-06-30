@@ -1,10 +1,13 @@
- import {useEffect, useState} from 'react'
-
+ import {useEffect} from 'react'
+ import {useRoutinesContext} from '../hooks/useRoutinesContext'
 //Components
  import RoutineDetails from '../components/RoutineDetails'
  import RoutineForm from '../components/RoutineForm'
+
   const Home = () => {
-    const[routines, setRoutines] = useState(null)
+    //const[routines, setRoutines] = useState(null)
+   //instead of using local state we using the global context
+    const {routines, dispatch} = useRoutinesContext()
 
     useEffect(() => {
       const fetchRoutines = async () => {
@@ -12,7 +15,8 @@
       const json = await response.json()
 
        if(response.ok){
-         setRoutines(json)
+         dispatch({type: 'SET_ROUTINES', payload: json})
+         //  setRoutines(json)
        }
      }
 
