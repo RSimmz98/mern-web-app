@@ -32,7 +32,22 @@ const Routine = require('../models/routineModel')
  // create new routine 
  const createRoutine = async(req, res) =>{
       const{title, load, reps} = req.body
+  //error handling -form fields
+  
+  let emptyFields = []
 
+  if(!title) {
+    emptyFields.push('title')
+  }
+  if(!load) {
+    emptyFields.push('load')
+  }
+  if(!reps) {
+    emptyFields.push('reps')
+  }
+  if(emptyFields.length > 0){
+    return res.status(400).json({ error: 'Please fill in the fields😉',emptyFields})
+  }
    //add document to database
   try{
     const routine = await Routine.create({title, load, reps})
