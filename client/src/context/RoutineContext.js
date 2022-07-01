@@ -15,6 +15,10 @@ import { createContext,useReducer } from 'react'
      return {
         routines: [action.payload, ...state.routines]
       }
+    case 'DELETE_ROUTINE':
+     return {
+        routines: state.routines.filter((r) => r._id !== action.payload._id)
+      }
     default: 
        return state
   }
