@@ -1,5 +1,8 @@
 import { useRoutinesContext } from '../hooks/useRoutinesContext'
 
+//date fns
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 const RoutineDetails = ({ routine }) => {
   const { dispatch } =useRoutinesContext()
 
@@ -19,8 +22,8 @@ const RoutineDetails = ({ routine }) => {
       <h4>{routine.title}</h4>
       <p><strong>Load(days): </strong>{routine.load}</p>
       <p><strong>Reps: </strong>{routine.reps}</p>
-      <p>{routine.createdAt}</p>
-      <span onClick={handleClick}>delete</span>
+      <p>{formatDistanceToNow(new Date(routine.createdAt), { addSuffix: true })}</p>
+      <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
     </div>
   )
 }

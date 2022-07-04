@@ -21,7 +21,7 @@
      }
 
      fetchRoutines()
-   }, [])
+   }, [dispatch])
 
     return(
       <div className='home'>
