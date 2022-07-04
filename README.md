@@ -8,7 +8,7 @@ just a mern stack work in progress
  4. npm i dotenv</br>
  5. npm i mongoose </br>
  6. create a .env file and make sure that you pass on the PORT aswell as MONGO_URI </br>
- 7. date fns
+ 7. date-fns
  
  # env setup
  <h4>MONGO_URI=LINK TO YOUR MONGO DB</h4>
