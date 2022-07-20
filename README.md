@@ -8,7 +8,12 @@ just a mern stack work in progress
  4. npm i dotenv</br>
  5. npm i mongoose </br>
  6. create a .env file and make sure that you pass on the PORT aswell as MONGO_URI </br>
- 7. .
+ 7. date-fns
+ 
+ # env setup
+ <h4>MONGO_URI=LINK TO YOUR MONGO DB</h4>
+ <h4>PORT=whatever port you want</h4>
+ 
  <h5>Dotenv is a zero-dependency module that loads environment variables
  from a .env file into process.env. Storing configuration in the environment
 separate from code is based on The Twelve-Factor App methodology.
