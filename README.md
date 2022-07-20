@@ -8,7 +8,8 @@ just a mern stack work in progress
  4. npm i dotenv</br>
  5. npm i mongoose </br>
  6. create a .env file and make sure that you pass on the PORT aswell as MONGO_URI </br>
- 7. date-fns
+ 7. npm i date-fns </br>
+ 8. npm i bcrypt </br>
  
  # env setup
  <h4>MONGO_URI=LINK TO YOUR MONGO DB</h4>
@@ -45,6 +46,9 @@ separate from code is based on The Twelve-Factor App methodology.
  #How I fixed them
   <p>if you look at the package json I used the proxy and then added 
   the localhost address</p> </br>
+ #bcrypt 
+ <p>used for encryption of passwords such that even if the database is hacked
+   hackers wont be able to get the user passwords</p> </br>
 
 ##Controllers
  <h6>So basically routes and controller work together its a way
