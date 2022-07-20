@@ -3,13 +3,13 @@ const User = require('../models/userModel')
 //login user
 
 const loginUser = async (req, res) => {
-  res.json({msg: 'login user'})
+  res.json({mssg: 'login user'})
 } 
 
 //signup 
 
 const signupUser = async (req, res) => {
-  res.json({msg: 'signup user'})
+  res.json({mssg: 'signup user'})
 }
 
 module. exports = { signupUser, loginUser}
