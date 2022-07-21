@@ -10,7 +10,8 @@ just a mern stack work in progress
  6. create a .env file and make sure that you pass on the PORT aswell as MONGO_URI </br>
  7. npm i date-fns </br>
  8. npm i bcrypt </br>
- 
+ 9. npm i validation </br>
+
  # env setup
  <h4>MONGO_URI=LINK TO YOUR MONGO DB</h4>
  <h4>PORT=whatever port you want</h4>
