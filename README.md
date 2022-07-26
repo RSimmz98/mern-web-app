@@ -1,5 +1,5 @@
 # mern-web-app
-just a mern stack work in progress
+just a mern stack work in progress(JWT-Jason web tokens etc)
 
  <h4>Lets get started</h4>
  1. git clone the project </br>
