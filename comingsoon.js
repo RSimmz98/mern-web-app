@@ -6,3 +6,7 @@ thank you to those that are supporting me and please dont stop
 dont give up it takes time to learn and I know it sucks sometimes but you \
 need to keep on going and you should never stop no matter the odds...
 lets keep going ... oops im not a motivational speaker but you will learn one or <two></two>
+
+
+
+
