@@ -7,9 +7,11 @@
      deleteRoutine,
      updateRoutine
    } = require('../controllers/routineController')
+  const requireAuth = require('../middleware/requireAuth')
 
   const router = express.Router()
-
+//requireAuth for all workout routes
+  router.use(requireAuth)
 
    //creating routes
   
