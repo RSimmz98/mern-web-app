@@ -1,8 +1,9 @@
 import {useState} from 'react'
 import {useRoutinesContext} from '../hooks/useRoutinesContext'
-  
+import  { useAuthContext } from '../hooks/useAuthContext'
   const RoutineForm = () => {
    const { dispatch } =useRoutinesContext()
+  const { user } = useAuthContext()
    const [title, setTitle] = useState('');
     const [load, setLoad] = useState('');
      const [reps, setReps] = useState('');
@@ -11,6 +12,11 @@ import {useRoutinesContext} from '../hooks/useRoutinesContext'
 
     const handleSubmit = async (e) => {
       e.preventDefault()
+
+    if (!user) {
+      setError('You must be logged in')
+      return
+    }
   
 
   const routine = {title, load, reps}
@@ -19,7 +25,8 @@ import {useRoutinesContext} from '../hooks/useRoutinesContext'
     method: 'POST',
     body: JSON.stringify(routine),
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${user.token}`
     }
   })
   

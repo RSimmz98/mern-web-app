@@ -1,5 +1,7 @@
  import {useEffect} from 'react'
  import {useRoutinesContext} from '../hooks/useRoutinesContext'
+ import { useAuthContext } from '../hooks/AuthContext'
+
 //Components
  import RoutineDetails from '../components/RoutineDetails'
  import RoutineForm from '../components/RoutineForm'
@@ -8,10 +10,15 @@
     //const[routines, setRoutines] = useState(null)
    //instead of using local state we using the global context
     const {routines, dispatch} = useRoutinesContext()
-
+    const {user} = useAuthContext()
+// Bearer is the name of the token
     useEffect(() => {
       const fetchRoutines = async () => {
-      const response = await fetch('/api/routines')
+      const response = await fetch('/api/routines', {
+         header: {
+           'Authorization': `Bearer ${user.token}`
+         }
+       })
       const json = await response.json()
 
        if(response.ok){
@@ -19,9 +26,13 @@
          //  setRoutines(json)
        }
      }
+     
+     if (user) {
+       fetchRoutines()
+     }
 
      fetchRoutines()
-   }, [dispatch])
+   }, [dispatch, user])
 
     return(
       <div className='home'>
