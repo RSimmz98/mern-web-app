@@ -50,6 +50,7 @@ const Routine = require('../models/routineModel')
   }
    //add document to database
   try{
+    const user_id = req.user._id
     const routine = await Routine.create({title, load, reps})
     res.status(200).json(routine)
   } catch (error) {

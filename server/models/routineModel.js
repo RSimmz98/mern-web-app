@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 // adding all the routines that we need to use as well as the data types
-
+// by adding the user_id we are making sure that when each user logs in will definetly see their on work outs
 const routineSchema = new Schema({
   title: {
     type: String,
@@ -18,6 +18,10 @@ const routineSchema = new Schema({
    load: {
     type: Number,
     required: true
+  },
+  user_id : {
+    type: String,
+    required : true
   }
 }, { timestamps: true }) //updates date and time of when the object was created
 
