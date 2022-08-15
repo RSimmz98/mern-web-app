@@ -6,7 +6,8 @@ const Routine = require('../models/routineModel')
 
 //get all routines
  const getRoutines = async(req, res) =>{
-   const routines = await Routine.find({}).sort({createdAt: -1})
+  const user_id = req.user_id
+   const routines = await Routine.find({ user_id }).sort({createdAt: -1})
 
    res.status(200).json(routines)
  } 
