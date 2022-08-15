@@ -1,6 +1,6 @@
  import {useEffect} from 'react'
  import {useRoutinesContext} from '../hooks/useRoutinesContext'
- import { useAuthContext } from '../hooks/AuthContext'
+ import { useAuthContext } from '../hooks/useAuthContext'
 
 //Components
  import RoutineDetails from '../components/RoutineDetails'
@@ -15,9 +15,7 @@
     useEffect(() => {
       const fetchRoutines = async () => {
       const response = await fetch('/api/routines', {
-         header: {
-           'Authorization': `Bearer ${user.token}`
-         }
+         headers: {'Authorization': `Bearer ${user.token}`},
        })
       const json = await response.json()
 
@@ -31,7 +29,7 @@
        fetchRoutines()
      }
 
-     fetchRoutines()
+  
    }, [dispatch, user])
 
     return(

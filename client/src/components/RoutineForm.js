@@ -1,9 +1,11 @@
 import {useState} from 'react'
 import {useRoutinesContext} from '../hooks/useRoutinesContext'
 import  { useAuthContext } from '../hooks/useAuthContext'
+
   const RoutineForm = () => {
-   const { dispatch } =useRoutinesContext()
-  const { user } = useAuthContext()
+   const { dispatch } = useRoutinesContext()
+   const { user } = useAuthContext()
+
    const [title, setTitle] = useState('');
     const [load, setLoad] = useState('');
      const [reps, setReps] = useState('');
@@ -36,14 +38,13 @@ import  { useAuthContext } from '../hooks/useAuthContext'
       setError(json.error)
       setEmptyFields(json.emptyFields)
   }
-    if(response.ok){
+    if(response.ok) {
       setTitle('')
       setLoad('')
       setReps('')
       setError(null)
       setEmptyFields([])
-      console.log('new rourine has been created', json)
-        dispatch({type: 'CREATE_ROUTINE', payload: json})
+     dispatch({type: 'CREATE_ROUTINE', payload: json})
     
     }
    }
