@@ -7,6 +7,7 @@ const Routine = require('../models/routineModel')
 //get all routines
  const getRoutines = async(req, res) =>{
   const user_id = req.user_id
+
    const routines = await Routine.find({ user_id }).sort({createdAt: -1})
 
    res.status(200).json(routines)
@@ -50,9 +51,9 @@ const Routine = require('../models/routineModel')
     return res.status(400).json({ error: 'Please fill in the fields😉',emptyFields})
   }
    //add document to database
-  try{
+  try {
     const user_id = req.user._id
-    const routine = await Routine.create({title, load, reps})
+    const routine = await Routine.create({title, load, reps, user_id})
     res.status(200).json(routine)
   } catch (error) {
   res.status(400).json({error: error.message})
@@ -71,7 +72,7 @@ const Routine = require('../models/routineModel')
    const routine = await Routine.findOneAndDelete({_id: id})
 
    if(!routine) {
-     return re.status(400).json({error: 'No such routine'})
+     return res.status(400).json({error: 'No such routine'})
    }
    res.status(200).json(routine)
  }
