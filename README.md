@@ -54,3 +54,5 @@ separate from code is based on The Twelve-Factor App methodology.
 ##Controllers
  <h6>So basically routes and controller work together its a way
  of splitting the code</h6>
+ 
+ #Bugs
